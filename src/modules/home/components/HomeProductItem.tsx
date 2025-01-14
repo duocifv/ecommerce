@@ -3,23 +3,22 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 const HomeProductItem = ({ product }) => {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
+  const [selectedSize, setSelectedSize] = useState(0)
   const [quantity, setQuantity] = useState(1)
-  const handleColorChange = (color) => setSelectedColor(color)
+  const handleColorChange = () => null
   const handleSizeChange = (size) => setSelectedSize(size)
   const handleQuantityChange = (e) => setQuantity(Number(e.target.value))
-  if (!product) return 'Không có sản phẩm'
+  if (!product) return <div>Không có sản phẩm</div>
   return (
     <div className="container mx-auto p-6">
       <div className="flex flex-wrap -mx-4">
         {/* Product Image */}
         <div className="w-full lg:w-1/2 px-4 mb-6 lg:mb-0">
-          {selectedColor?.imageUrl && (
+          {product?.imageUrl && (
             <Image
               width={500}
               height={500}
-              src={selectedColor?.imageUrl}
+              src={product?.imageUrl}
               alt={product.name}
               className="w-full h-auto object-cover"
             />
@@ -31,10 +30,10 @@ const HomeProductItem = ({ product }) => {
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             {product.name}
           </h1>
-          <p className="text-lg text-gray-600 mb-4">{product.description}</p>
+          <p className="text-lg text-gray-600 mb-4">{product?.description}</p>
           <div className="flex items-center mb-4">
             <span className="text-xl font-semibold text-gray-800">
-              ${selectedColor?.price}
+              ${product?.price}
             </span>
           </div>
 
@@ -42,11 +41,11 @@ const HomeProductItem = ({ product }) => {
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-700">Color</h3>
             <div className="flex space-x-4 mt-2">
-              {product.colors.map((color) => (
+              {product?.colors?.map((color) => (
                 <button
-                  key={color.name}
-                  onClick={() => handleColorChange(color)}
-                  className={`w-10 h-10 rounded-full border-2 ${selectedColor.name === color.name ? 'border-blue-500' : 'border-gray-300'}`}
+                  key={color?.name}
+                  onClick={() => handleColorChange()}
+                  className={`w-10 h-10 rounded-full border-2 ${product.name === color.name ? 'border-blue-500' : 'border-gray-300'}`}
                   style={{ backgroundColor: color.hex }}
                 />
               ))}
@@ -57,7 +56,7 @@ const HomeProductItem = ({ product }) => {
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-700">Size</h3>
             <div className="flex space-x-4 mt-2">
-              {product.sizes.map((size) => (
+              {product?.sizes?.map((size) => (
                 <button
                   key={size}
                   onClick={() => handleSizeChange(size)}

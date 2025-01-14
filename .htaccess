@@ -1,0 +1,47 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/emueeevr/app.duocnv.top"
+PassengerBaseURI "/"
+PassengerNodejs "/home/emueeevr/nodevenv/app.duocnv.top/18/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
+
+
+
+
+# # Đảm bảo tài nguyên trong thư mục /assets/images/ được phục vụ từ localhost:8000
+# RewriteCond %{REQUEST_URI} ^/assets/images/
+# RewriteRule ^assets/images/(.*)$ http://localhost:8100/assets/images/$1 [P,L]
+
+# # Chuyển tiếp tài nguyên từ /admin/ đến đúng thư mục admin trong public/my-project
+# RewriteCond %{REQUEST_URI} ^/admin/
+# # Đảm bảo tài nguyên từ /my-project/build/ được chuyển tiếp đến localhost:8000
+# RewriteRule ^admin/(.*)$ http://localhost:8100/admin/$1 [P,L]
+
+# RewriteCond %{REQUEST_URI} ^/api/
+# # Đảm bảo tài nguyên từ /my-project/build/ được chuyển tiếp đến localhost:8000
+# RewriteRule ^api/(.*)$ http://localhost:8100/api/$1 [P,L]
+
+# Chuyển tiếp tất cả các yêu cầu của /my-project tới localhost:8000
+# RewriteCond %{REQUEST_URI} ^/
+# RewriteRule ^my-project/(.*)$ http://localhost:8100/$1 [P,L]
+
+
+RewriteEngine On
+
+# RewriteRule ^admin/(.*)$ admin/$1 [L]
+# RewriteRule ^(.*)$ http://0.0.0.0:8100/$1 [P,L]
+
+
+
+# Giữ nguyên /admin để chạy ở http://0.0.0.0:8100/admin
+# RewriteRule ^admin/(.*)$ http://0.0.0.0:8100/admin/$1 [P,L]
+
+
+
+

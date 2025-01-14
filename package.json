@@ -1,4 +1,5 @@
 {
+  "packageManager": "pnpm@8.7.1",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -6,24 +7,38 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "next build && npx serve@latest out",
+    "format": "prettier --write . && next lint",
+    "gen": "graphql-codegen --config codegen.ts",
+    "svg": "npx @svgr/cli .svgrrc --typescript --out-dir ./src/stories/icons ./src/stories/assets/icons"
   },
   "dependencies": {
-    "http-proxy": "^1.18.1",
-    "mysql": "^2.18.1",
-    "next": "15.1.4",
+    "@tanstack/react-query": "^5.62.7",
+    "@tanstack/react-query-devtools": "^5.64.1",
+    "autoprefixer": "^10.4.20",
+    "classnames": "^2.5.1",
+    "graphql": "^16.9.0",
+    "graphql-request": "^7.1.2",
+    "next": "^15.1.0",
+    "postcss-prefix-selector": "^2.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.0",
+    "sanitize-html": "^2.13.1",
+    "tailwindcss": "^3.4.16",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "@heroicons/react": "^2.2.0",
+    "@svgr/cli": "^8.1.0",
+    "@types/node": "22.10.6",
+    "eslint-config-next": "15.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
   }
 }

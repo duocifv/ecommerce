@@ -7,4 +7,4 @@ module.exports = ({ env }) => ({
       jwtSecret: env('JWT_SECRET', 'YOUR_GENERATED_JWT_SECRET'), // Lấy từ môi trường hoặc giá trị mặc định
     },
   },
-});
+})

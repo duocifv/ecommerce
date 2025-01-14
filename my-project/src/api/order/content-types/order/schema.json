@@ -28,12 +28,7 @@
     },
     "status": {
       "type": "enumeration",
-      "enum": [
-        "pending",
-        "paid",
-        "shipped",
-        "completed"
-      ]
+      "enum": ["pending", "paid", "shipped", "completed"]
     }
   }
 }

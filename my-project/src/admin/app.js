@@ -23,18 +23,18 @@ const config = {
     // 'th',
     // 'tr',
     // 'uk',
-     'vi',
+    'vi',
     // 'zh-Hans',
     // 'zh',
-    ],
-    defaultLocale: 'vi',   // Ngôn ngữ mặc định
-};
+  ],
+  defaultLocale: 'vi', // Ngôn ngữ mặc định
+}
 
 const bootstrap = (app) => {
-  console.log(app);
-};
+  console.log(app)
+}
 
 export default {
   config,
   bootstrap,
-};
+}

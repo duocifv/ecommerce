@@ -1,0 +1,20 @@
+.home {
+  &-title {
+    font-size: 18px;
+  }
+
+  &-container {
+    max-width: 1284px;
+    margin: 42px auto 0;
+    padding: 18px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .home {
+    &-container {
+      padding: 8px;
+      margin: 54px auto 0;
+    }
+  }
+}

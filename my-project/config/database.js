@@ -1,5 +1,5 @@
 module.exports = ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'mysql');  // Đặt client là mysql
+  const client = env('DATABASE_CLIENT', 'mysql') // Đặt client là mysql
 
   const connections = {
     mysql: {
@@ -16,12 +16,18 @@ module.exports = ({ env }) => {
           ca: env('DATABASE_SSL_CA', undefined),
           capath: env('DATABASE_SSL_CAPATH', undefined),
           cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+          rejectUnauthorized: env.bool(
+            'DATABASE_SSL_REJECT_UNAUTHORIZED',
+            true
+          ),
         },
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: {
+        min: env.int('DATABASE_POOL_MIN', 2),
+        max: env.int('DATABASE_POOL_MAX', 10),
+      },
     },
-  };
+  }
 
   return {
     connection: {
@@ -29,5 +35,5 @@ module.exports = ({ env }) => {
       ...connections[client],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
-  };
-};
+  }
+}

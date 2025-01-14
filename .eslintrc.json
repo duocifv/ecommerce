@@ -1,0 +1,61 @@
+{
+  "extends": [
+    "next/core-web-vitals", // Cấu hình mặc định của Next.js cho các web vitals
+    "next/typescript", // Cấu hình cho TypeScript trong Next.js
+    "eslint:recommended", // Các quy tắc cơ bản của ESLint
+    "plugin:react/recommended", // Cấu hình cho React
+    "plugin:jsx-a11y/recommended", // Cấu hình cho accessibility (a11y)
+    "plugin:react-hooks/recommended", // Cấu hình cho các quy tắc hook của React
+    "prettier" // Đảm bảo ESLint và Prettier không xung đột
+  ],
+  "parser": "@typescript-eslint/parser", // Sử dụng parser của TypeScript
+  "parserOptions": {
+    "ecmaVersion": 2020, // Cấu hình ECMAScript cho phiên bản mới nhất
+    "sourceType": "module" // Sử dụng ES module
+  },
+  "plugins": [
+    "react", // Plugin React
+    "react-hooks", // Plugin cho các hook của React
+    "jsx-a11y", // Plugin cho accessibility
+    "@typescript-eslint", // Plugin cho TypeScript
+    "prettier" // Plugin Prettier để hỗ trợ quy tắc định dạng mã
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off", // Tắt cảnh báo không cần thiết trong JSX
+    "@typescript-eslint/no-explicit-any": "off", // Cho phép any trong TypeScript nếu cần
+    "no-any": "off", // Tắt cảnh báo 'any'
+    "react/jsx-uses-react": "off", // Next.js 13+ không cần `jsx-uses-react`
+    "no-unused-vars": "warn", // Cảnh báo với các biến không sử dụng
+    "react/prop-types": "off", // Tắt kiểm tra PropTypes trong React
+    "react-hooks/rules-of-hooks": "error", // Kiểm tra các hook của React
+    "react-hooks/exhaustive-deps": "warn", // Kiểm tra phụ thuộc của hook
+    "@typescript-eslint/no-require-imports": "off", // Cho phép require imports trong TypeScript
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true, // Dùng dấu nháy đơn cho chuỗi
+        "trailingComma": "es5", // Dấu phẩy cuối dòng cho ES5
+        "semi": false, // Không cần dấu chấm phẩy
+        "printWidth": 80 // Độ dài tối đa của mỗi dòng mã
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Tự động phát hiện phiên bản React
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/gql/**/*" // Đặc biệt cho các file GraphQL
+      ],
+      "rules": {
+        "no-any": "off" // Tắt cảnh báo với 'any' trong GraphQL
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "src/gql/graphql.ts" // Bỏ qua các cảnh báo trong tệp GraphQL
+  ]
+}

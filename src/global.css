@@ -1,0 +1,158 @@
+:root {
+  --primary: #af2026;
+  --secondary: #fbb144;
+  --tertiary: #cc9f68;
+  --dark: #1f1d1b;
+  --light: #fffada;
+  --foreground: #f4f4f4;
+}
+
+body {
+  color: #333;
+  font-family:
+    'Inter',
+    Arial,
+    SF Pro Text,
+    Roboto,
+    Helvetica Neue,
+    Helvetica,
+    Tahoma,
+    PingFang SC,
+    Microsoft YaHei;
+}
+
+@tailwind base;
+@tailwind components;
+
+.column-scroll::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.column-scroll::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.column-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+.column-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.columns-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.columns-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.columns-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.columns-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.column-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.column-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.column-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.column-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  padding: 2px 4px;
+}
+
+.effect {
+  transition: all 180ms cubic-bezier(0.19, 0.56, 0.42, 0.93);
+}
+.effect-out {
+  opacity: 0 !important;
+  /* transform: translateY(-10px) !important; */
+}
+.effect-in {
+  opacity: 1 !important;
+}
+.effect {
+  transition: all 180ms cubic-bezier(0.19, 0.56, 0.42, 0.93);
+}
+.effect-20 {
+  transition: all 32ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.effect-opacity {
+  transition: opacity 120ms cubic-bezier(0.19, 0.56, 0.42, 0.93);
+}
+
+.sortable-handler div {
+  -ms-touch-action: none;
+  touch-action: none;
+}
+/* Dark shades close to black: #010101, #020202, #1f1d1b, etc. Crimson 9E1B32*/
+/* 2f2f2f b7272f*/
+
+.top2 {
+  height: 70px;
+  background-color: gray;
+}
+.nav-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+.effect-close {
+  opacity: 0.5;
+  transition: opacity 820ms cubic-bezier(0.19, 0.56, 0.42, 0.93);
+}
+.effect-open {
+  opacity: 1;
+  transition: opacity 820ms cubic-bezier(0.19, 0.56, 0.42, 0.93);
+}
+.content-wp img {
+  margin-top: 10px;
+}
+@tailwind utilities;
